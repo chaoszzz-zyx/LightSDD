@@ -1,0 +1,6 @@
+train: E:\现代制造\论文阅读\NEU-DET\devkit\train\images
+val: E:\现代制造\论文阅读\NEU-DET\devkit\val\images
+ 
+nc: 6
+ 
+names: ['crazing',  'inclusion',  'patches',  'pitted_surface',  'rolled-in_scale',  'scratches']
