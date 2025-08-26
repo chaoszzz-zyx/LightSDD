@@ -1,0 +1,6 @@
+train: E:\LightSDD\返修\GC10_DET\train\images
+val: E:\LightSDD\返修\GC10_DET\val\images
+ 
+nc: 10
+ 
+names: ['Crescent gap',  'Welding line',  'Water spot',  'Silk spot',  'Inclusion',  'Oil spot', 'Crease', 'Punching', 'Waist folding', 'Rolled pit']
