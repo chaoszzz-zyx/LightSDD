@@ -13,9 +13,9 @@ def get_weight_size(path):
 
 if __name__ == '__main__':
     model_path = r'E:\pythonproject\ultralytics-yolo11-20250215\ultralytics-yolo11-main\runs\train\GC10(YOLOv10)fold4\weights\best.pt'
-    model = YOLO(model_path) # 选择训练好的权重路径
+    model = YOLO(model_path)
     result = model.val(data=r'E:\pythonproject\ultralytics-yolo11-20250215\ultralytics-yolo11-main\5Folds\folds\fold4\GC10_DET_fold4.yaml',
-                        split='val', # split可以选择train、val、test 根据自己的数据集情况来选择.
+                        split='val', 
                         imgsz=640,
                         batch=8,
                         # iou=0.7,
@@ -25,7 +25,7 @@ if __name__ == '__main__':
                         name='GC10(YOLOv10)fold4',
                         )
     
-    if model.task == 'detect': # 仅目标检测任务适用 需要改别的任务可以看：https://www.bilibili.com/video/BV1dBQDY6Ec5/
+    if model.task == 'detect': 
         length = result.box.p.size
         model_names = list(result.names.values())
         preprocess_time_per_image = result.speed['preprocess']
@@ -34,12 +34,6 @@ if __name__ == '__main__':
         all_time_per_image = preprocess_time_per_image + inference_time_per_image + postprocess_time_per_image
         
         n_l, n_p, n_g, flops = model_info(model.model)
-        
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
 
         model_info_table = PrettyTable()
         model_info_table.title = "Model Info"
@@ -78,9 +72,4 @@ if __name__ == '__main__':
             f.write(str(model_info_table))
             f.write('\n')
             f.write(str(model_metrice_table))
-        
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
+    
